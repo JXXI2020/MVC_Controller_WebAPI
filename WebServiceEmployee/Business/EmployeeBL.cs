@@ -7,6 +7,13 @@ namespace WebServiceEmployee.Business
 {
     public class EmployeeBL : IEmployeeBL
     {
+
+        IConfiguration Configuration;
+
+        public EmployeeBL(IConfiguration configuration)
+        {
+            this.Configuration = configuration;
+        }
         public List<Employee> calculateSalary(List<Employee> employeeList)
         {
             for (int i = 0; i < employeeList.Count; i++)

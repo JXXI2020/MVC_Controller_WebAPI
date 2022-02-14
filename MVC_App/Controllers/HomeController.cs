@@ -28,7 +28,10 @@ namespace MVC_App.Controllers
         }
 
         private async Task<List<Employee>> SearchCustomers(string id)
-        {            
+        {
+            try { 
+            
+            
             var json = "";
             DataEmployees consS = new DataEmployees();
             DataEmployee cons = new DataEmployee();
@@ -62,6 +65,17 @@ namespace MVC_App.Controllers
             }
 
             return employeeSList;
+            }
+            catch
+            {
+                List<Employee> employeeSList = new List<Employee>();
+                
+                Employee employee = new Employee();
+                employeeSList.Add(employee);
+                employeeSList[0].employee_name = "Service Error. F5, please";
+                return employeeSList;
+
+            }
         }
     }
 }

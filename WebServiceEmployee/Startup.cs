@@ -40,7 +40,7 @@ namespace WebServiceEmployee
             });
 
             services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
-            services.AddScoped<EmployeeAPIController>();
+            //services.AddScoped<IEmployeeBL, EmployeeAPIController>();
 
             var mappingConfig = new MapperConfiguration(mc =>
             {
@@ -55,6 +55,9 @@ namespace WebServiceEmployee
             {
                 options.EnableEndpointRouting = false;
             });
+
+
+            
         }
 
         public void Configure(IApplicationBuilder app)
